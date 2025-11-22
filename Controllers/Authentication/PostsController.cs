@@ -37,14 +37,30 @@ namespace ProjectK.Controllers.Authentication
         [HttpGet("GetAllPosts")]
         public async Task<IActionResult> GetAllPosts()
         {
+            int userId = int.Parse(User!.FindFirst("userId")!.Value); 
+            var response = new
+            {
+                mode = 0,
+                responseMessage = "Something went wrong",
+                postsList = new List<GetAllUsersPostsModel>()
+            };
 
-            var response = new { mode = 0, responseMessage = "Something went wrong",postsList = new List<GetAllUsersPostsModel>() };
-            
-            var posts = await prokjectKDbContext.GetUserPosts.FromSqlRaw("CALL GetUserPosts()").AsNoTracking().ToListAsync();
+            // 👈 Call stored procedure WITH userId param
+            var posts = await prokjectKDbContext.GetUserPosts
+                .FromSqlRaw("CALL GetUserPosts({0});", userId)
+                .AsNoTracking()
+                .ToListAsync();
+
             if (posts.Count > 0)
             {
-                response = new { mode = 1, responseMessage = "Post fetched",postsList = posts };
+                response = new
+                {
+                    mode = 1,
+                    responseMessage = "Post fetched",
+                    postsList = posts
+                };
             }
+
             return Ok(response);
         }
 
@@ -57,7 +73,7 @@ namespace ProjectK.Controllers.Authentication
             {
                 await prokjectKDbContext.Database.ExecuteSqlRawAsync("CALL UpdateUserPostInteraction({0}, {1}, {2});",
                     UserPostInteraction.UserId, UserPostInteraction.PostId, UserPostInteraction.InteractionMode);
-                prokjectKDbContext.UserpostInteraction.Add(UserPostInteraction);
+                //prokjectKDbContext.UserpostInteraction.Add(UserPostInteraction);
                     prokjectKDbContext.SaveChanges();
                     response = new { mode = 1, responseMessage = "" };
             }

@@ -117,3 +117,4 @@ C:\asp.netwebapi\ProjectK\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
 C:\asp.netwebapi\ProjectK\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\asp.netwebapi\ProjectK\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 C:\asp.netwebapi\ProjectK\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\asp.netwebapi\ProjectK\obj\Debug\net8.0\ProjectK.sourcelink.json
