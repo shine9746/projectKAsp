@@ -1,0 +1,86 @@
+[
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.AuthenticationController",
+    "Method": "Authenticate",
+    "RelativePath": "api/Authentication/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "AuthDetails",
+        "Type": "ProjectK.Models.AuthenticationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.AuthenticationController",
+    "Method": "Signup",
+    "RelativePath": "api/Authentication/Signup",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserDetails",
+        "Type": "ProjectK.Models.UserModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.PostsController",
+    "Method": "CreatePost",
+    "RelativePath": "api/Posts/CreatePost",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserPost",
+        "Type": "ProjectK.Models.UserPosts",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.PostsController",
+    "Method": "GetAllPosts",
+    "RelativePath": "api/Posts/GetAllPosts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.PostsController",
+    "Method": "UserPostInteraction",
+    "RelativePath": "api/Posts/UserPostInteraction",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserPostInteraction",
+        "Type": "ProjectK.Models.UserPostInteractionModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.UserController",
+    "Method": "GetAllUsers",
+    "RelativePath": "api/Users/GetAllUsers",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]
