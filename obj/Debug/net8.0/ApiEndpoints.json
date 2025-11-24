@@ -75,12 +75,44 @@
   },
   {
     "ContainingType": "ProjectK.Controllers.Authentication.UserController",
+    "Method": "DeleteUser",
+    "RelativePath": "api/Users/DeleteUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserDetails",
+        "Type": "ProjectK.Models.DeleteUserModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.UserController",
     "Method": "GetAllUsers",
     "RelativePath": "api/Users/GetAllUsers",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.UserController",
+    "Method": "UpdateUser",
+    "RelativePath": "api/Users/UpdateUser",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserDetails",
+        "Type": "ProjectK.Models.UserModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   }
 ]

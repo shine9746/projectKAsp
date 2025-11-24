@@ -61,7 +61,7 @@ namespace ProjectK.Controllers.Authentication
             }
             else if (!ModelState.IsValid)
             {
-                string[] fields = { "Username", "PhoneNo", "Gender", "Email", "Password", "Address" };
+                string[] fields = { "UserName", "PhoneNumber", "Gender", "Email", "Password", "Address" };
                 var errors = fields.Where((field) => ModelState.ContainsKey(field))
                   .SelectMany(field => ModelState[field]!.Errors)
                 .Select(e => e.ErrorMessage)
@@ -131,7 +131,8 @@ namespace ProjectK.Controllers.Authentication
     new Claim("email", userDetails?.Email ?? ""),
     new Claim("phoneNumber", userDetails?.PhoneNumber ?? ""),
     new Claim("gender", userDetails!.Gender.ToString(), ClaimValueTypes.Integer),
-    new Claim("filePath", userDetails?.FilePath ?? "")
+    new Claim("filePath", userDetails?.FilePath ?? ""),
+     new Claim("address", userDetails?.Address ?? "")
 };
             var token = new JwtSecurityToken(
                 issuer: jwtSettings["Issuer"],
