@@ -21,7 +21,7 @@ namespace ProjectK.Models
         [Required(ErrorMessage ="Password Required")]
         public string Password { get; set; } = "";
         [NotMapped]
-        public string File { get; set; } = "";
+        public string? File { get; set; }
         public string FilePath { get; set; } = "";
 
 
