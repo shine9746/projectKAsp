@@ -32,7 +32,7 @@ namespace ProjectK.Controllers.Authentication
         [HttpPut("UpdateUser")]
         public async Task<IActionResult> UpdateUser([FromBody] UserModel UserDetails)
         {
-            var response = new { mode = 0, message = "Something went wrong."};
+            var response = new { mode = 0, message = "Something went wrong.", filePath = ""};
             var user = await prokjectKDbContext.Users.FindAsync(UserDetails?.UserId);
             if (UserDetails != null || user != null)
             {
@@ -40,7 +40,7 @@ namespace ProjectK.Controllers.Authentication
                 UserDetails.PhoneNumber) &&  details.UserId != UserDetails!.UserId);
                 if (existingUser != null)
                 {
-                    response = new { mode = 0, message = "User exist with same email or phone number" };
+                    response = new { mode = 0, message = "User exist with same email or phone number", filePath = "" };
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace ProjectK.Controllers.Authentication
                     }
                     UserDetails.File = "";
                     prokjectKDbContext.SaveChanges();
-                    response = new { mode = 1, message = "User updated." };
+                    response = new { mode = 1, message = "User updated.",filePath = user.FilePath };
 
                 }
             }

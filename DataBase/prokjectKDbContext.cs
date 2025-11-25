@@ -13,6 +13,9 @@ namespace ProjectK.Data
 
         public DbSet<UserPostInteractionModel> UserpostInteraction { get; set; }
         public DbSet<GetAllUsersPostsModel> GetUserPosts { get; set; }
+        public DbSet<UserCommentsModel> UserComments { get; set; }
+
+        public DbSet<GetCommentsModel> GetComments { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,6 +24,7 @@ namespace ProjectK.Data
 
             modelBuilder.Entity<GetAllUsersPostsModel>(entity =>
             {
+                modelBuilder.Entity<GetCommentsModel>().HasNoKey();
                 entity.HasNoKey();
                 entity.ToView(null);
             });

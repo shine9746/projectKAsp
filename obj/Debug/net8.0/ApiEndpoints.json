@@ -59,6 +59,38 @@
   },
   {
     "ContainingType": "ProjectK.Controllers.Authentication.PostsController",
+    "Method": "GetPostComments",
+    "RelativePath": "api/Posts/GetPostComments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Post",
+        "Type": "ProjectK.Models.GetComments",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.PostsController",
+    "Method": "UserComments",
+    "RelativePath": "api/Posts/UserComments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserComments",
+        "Type": "ProjectK.Models.UserCommentsModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ProjectK.Controllers.Authentication.PostsController",
     "Method": "UserPostInteraction",
     "RelativePath": "api/Posts/UserPostInteraction",
     "HttpMethod": "POST",
