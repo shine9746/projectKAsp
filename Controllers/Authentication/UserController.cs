@@ -15,7 +15,7 @@ namespace ProjectK.Controllers.Authentication
         {
             prokjectKDbContext = projectDbContext;
         }
-
+        [Authorize]
         [HttpGet("GetAllUsers")]
         public IActionResult GetAllUsers()
         {

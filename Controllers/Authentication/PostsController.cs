@@ -71,50 +71,18 @@ namespace ProjectK.Controllers.Authentication
             var response = new { mode = 0, responseMessage = "Something went wrong" };
             if (UserPostInteraction != null)
             {
-                await prokjectKDbContext.Database.ExecuteSqlRawAsync("CALL UpdateUserPostInteraction({0}, {1}, {2});",
+                await prokjectKDbContext.Database.ExecuteSqlRawAsync("CALL UpdateUserPostInteraction({0}, {1}, {2}" +
+                    ");",
                     UserPostInteraction.UserId, UserPostInteraction.PostId, UserPostInteraction.InteractionMode);
-                    prokjectKDbContext.SaveChanges();
-                    response = new { mode = 1, responseMessage = "" };
-            }
-
-            return Ok(response);
-        }
-
-        [Authorize]
-        [HttpPost("UserComments")]
-        public IActionResult UserComments([FromBody] UserCommentsModel UserComments)
-        {
-            var response = new { mode = 0, responseMessage = "Something went wrong" };
-            if (UserComments != null)
-            {
-                UserComments.commentCreationDate = DateTime.Now;
-                prokjectKDbContext.UserComments.Add(UserComments);
                 prokjectKDbContext.SaveChanges();
-                response = new { mode = 1, responseMessage = "Comment posted" };
+                response = new { mode = 1, responseMessage = "" };
             }
+
             return Ok(response);
         }
 
-        [Authorize]
-        [HttpPost("GetPostComments")]
-        public async Task<IActionResult> GetPostComments([FromBody] GetComments Post)
-        {
-            var response = new { mode = 0, responseMessage = "Something went wrong", comments = new List<GetCommentsModel>() };
-            if (Post != null)
-            {
-                var comments = await prokjectKDbContext.GetComments.FromSqlRaw("CALL GetCommentsByPost({0})", Post.PostId).ToListAsync();
-                if(comments != null)
-                {
-                    response = new { mode = 1, responseMessage = "Something went wrong", comments = comments };
-                }
-                else
-                {
-                    response = new { mode = 0, responseMessage = "", comments = new List<GetCommentsModel>() };
-                }
 
-            }
-            return Ok(response);
-        }
+
 
 
     }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 namespace ProjectK.Models
 {
     public class UserCommentsModel
@@ -41,5 +42,16 @@ namespace ProjectK.Models
         public int Mode { get; set; }
         public string ResponseMessage { get; set; } = "";
         public List<GetCommentsModel>? Comments { get; set; }
+    }
+
+    public class CommentDetailsModal
+    {
+        public int CommentId { get; set; }
+    }
+
+    [Keyless]
+    public class DeleteResultDto
+    {
+        public int AffectedRows { get; set; }
     }
 }
