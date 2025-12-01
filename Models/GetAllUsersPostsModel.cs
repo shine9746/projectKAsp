@@ -18,5 +18,7 @@ namespace ProjectK.Models
         public int PostLikes { get; set; } = 0;
 
         public int PostDisLikes { get; set; } = 0;
+
+        public int CommentsCount { get; set; } = 0;
     }
 }
